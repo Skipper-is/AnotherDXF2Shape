@@ -473,8 +473,15 @@ def attTableEdit (sOutForm, inpDat,bFormat,sCharSet,gpkgTable=None, txtErsatz4Ta
                     if len(arr) == 2:
                         f = arr[0] 
                         w = arr[1]
-
-
+                        
+                        def replaceColour(colour): #QGIS expects #AARRGGBB, but hex is usually #RRGGBBAA, so need to swap the start.
+                            if (len(colour) == 9 and colour[:1]== '#':
+                                return '#' + colour[7:9] + colour[1:7]
+                            else:
+                                return colour
+                        f = replaceColour(f)
+                        w = replaceColour(w)
+                        
                         if f == "c":
 
                             if w == "#ffffff": w="#f0f0f0"
@@ -591,4 +598,5 @@ def attTableEdit (sOutForm, inpDat,bFormat,sCharSet,gpkgTable=None, txtErsatz4Ta
             feature = layer.GetNextFeature()
     layer.CommitTransaction()
     source.Destroy()
+
 
