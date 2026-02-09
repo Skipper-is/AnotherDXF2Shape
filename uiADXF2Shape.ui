@@ -605,10 +605,11 @@
               </widget>
             </item>
             <item>
-            <widget class="QPushButton" name="btnPastePoints">
-              <property name="text">
-                <string>Paste point pairs from clipboard</string>
-              </property>
+              <widget class="QPushButton" name="btnPastePoints">
+                <property name="text">
+                  <string>Paste point pairs from clipboard</string>
+                </property>
+              </widget>
             </item>
           </layout>
          </item>
